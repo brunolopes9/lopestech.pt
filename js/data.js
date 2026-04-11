@@ -28,29 +28,161 @@ const videos = [
 ];
 
 const featuredProject = {
-  title: "eBL Middleware — Blockchain & Digital Supply Chain",
+  title: "eBL Blockchain & Digital Supply Chain",
   description: {
-    pt: "Sistema middleware empresarial que revoluciona o transporte marítimo ao digitalizar os Bill of Lading (BL) para Electronic Bill of Lading (EBL) na blockchain. Elimina os BLs em papel — cada edição, transferência ou aprovação de levantamento é registada de forma imutável e rastreável. As empresas (carriers, shippers, consignees) têm contratos e carteiras na blockchain, garantindo segurança, confiança e rapidez em cada operação. Cada EBL recebe um token ID único, assegurando total transparência na digital supply chain. Um passo decisivo na transição para o Web3 nos transportes internacionais.",
-    en: "Enterprise middleware system revolutionizing maritime transport by digitizing Bills of Lading (BL) into Electronic Bills of Lading (EBL) on the blockchain. Eliminates paper BLs — every edit, transfer or pickup approval is immutably recorded and traceable. Companies (carriers, shippers, consignees) have contracts and wallets on the blockchain, ensuring security, trust and speed in every operation. Each EBL receives a unique token ID, ensuring total transparency in the digital supply chain. A decisive step in the Web3 transition for international shipping.",
+    pt: "Sistema empresarial que revoluciona o transporte marítimo ao digitalizar os Bill of Lading (BL) para Electronic Bill of Lading (EBL) na blockchain. Elimina os BLs em papel. Cada EBL recebe um token ID único, assegurando total transparência na digital supply chain. Um passo decisivo na transição para o Web3 nos transportes internacionais.",
+    en: "Enterprise system revolutionizing maritime transport by digitizing Bills of Lading (BL) into Electronic Bills of Lading (EBL) on the blockchain. Eliminates paper BLs. Each EBL receives a unique token ID, ensuring total transparency in the digital supply chain. A decisive step in the Web3 transition for international shipping.",
   },
   tags: [".NET 10", "React", "SQL Server", "Blockchain", "Web3", "Python"],
-  images: ["assets/projetos/blockchain1.png", "assets/projetos/blockchain2.png", "assets/projetos/blockchain3.png"],
+  images: ["assets/projetos/blockchain3.png","assets/projetos/blockchain2.png", ],
 };
 
 const projects = [
-  { title: "NextHire — Portal de Emprego", description: { pt: "Portal de emprego full-stack MERN. Employers publicam vagas, candidatos pesquisam e gerem candidaturas.", en: "Full-stack MERN job portal. Employers post jobs, candidates search and manage applications." }, tags: ["MongoDB", "Express", "React", "Node.js", "Tailwind CSS"], link: "https://next-hire-ashen.vercel.app", github: "https://github.com/brunolopes9/NextHire", image: "https://raw.githubusercontent.com/brunolopes9/NextHire/main/frontend/NextHire/public/1.png" },
-  { title: "RankingApp — Classificador Interativo", description: { pt: "Aplicação interativa com drag & drop para classificar filmes ou álbuns. Full-stack com React e ASP.NET Core.", en: "Interactive drag & drop app for ranking movies or albums. Full-stack with React and ASP.NET Core." }, tags: ["React", "ASP.NET Core", "C#", "Tailwind CSS"], github: "https://github.com/brunolopes9/rankingApp", image: "https://raw.githubusercontent.com/brunolopes9/rankingApp/main/rankingapp.client/public/RankingApp1.png" },
-  { title: "SimpleShop — E-Commerce", description: { pt: "E-commerce com múltiplas bases de dados: MySQL, MongoDB e Redis. Segurança com Argon2.", en: "E-commerce with multiple databases: MySQL, MongoDB and Redis. Security with Argon2." }, tags: ["Fastify", "MySQL", "MongoDB", "Redis"], github: "https://github.com/brunolopes9/SimpleShop", image: "https://raw.githubusercontent.com/brunolopes9/SimpleShop/main/public/1.png" },
-  { title: "BLE Tracking System", description: { pt: "Sistema de rastreamento industrial com BLE. Projeto em parceria com HUF Portuguesa.", en: "Industrial tracking system with BLE. Project in partnership with HUF Portuguesa." }, tags: ["Node.js", "PHP", "MQTT", "BLE"], github: "https://github.com/brunolopes9/ble_tracking_system" },
-  { title: "BrunoFolio — Portfólio", description: { pt: "Portfólio pessoal moderno com dark mode, animações e formulário de contacto com API.", en: "Modern personal portfolio with dark mode, animations and contact form with API." }, tags: ["Next.js", "TypeScript", "Tailwind CSS", "Framer Motion"], link: "https://bruno-folio-8y1g.vercel.app/", github: "https://github.com/brunolopes9/BrunoFolio" },
-  { title: "DevLinks — Cartão Digital", description: { pt: "Cartão de visitas digital interativo com links para redes sociais e contacto.", en: "Interactive digital business card with social media and contact links." }, tags: ["HTML", "CSS", "JavaScript"], link: "https://brunolopes9.github.io/DevLinks/", github: "https://github.com/brunolopes9/DevLinks" },
-  { title: "Bulky MVC — Gestão", description: { pt: "Aplicação MVC para gestão de produtos com CRUD completo e autorização por roles.", en: "MVC application for product management with full CRUD and role-based authorization." }, tags: ["ASP.NET Core", "C#", "SQL Server"], github: "https://github.com/brunolopes9/Bulky_MVC" },
-  { title: "netCRUD — API REST", description: { pt: "API RESTful com CRUD completo demonstrando boas práticas de backend.", en: "RESTful API with full CRUD demonstrating backend best practices." }, tags: [".NET", "C#", "REST API"], github: "https://github.com/brunolopes9/netCRUD" },
-  { title: "myTodo — Tarefas", description: { pt: "Gestor de tarefas com Redux Toolkit, Thunks assíncronos e REST API.", en: "Task manager with Redux Toolkit, async Thunks and REST API." }, tags: ["React", "Redux", "Express"], github: "https://github.com/brunolopes9/myTodo" },
-  { title: "TypingSpeed", description: { pt: "Teste de velocidade de escrita com medição de palavras por minuto em tempo real.", en: "Typing speed test with real-time words per minute measurement." }, tags: ["JavaScript", "CSS"], link: "https://brunolopes9.github.io/TypingSpeed/", github: "https://github.com/brunolopes9/TypingSpeed" },
-  { title: "TrainTwitter", description: { pt: "Clone simplificado do Twitter com funcionalidades de publicação e feed.", en: "Simplified Twitter clone with posting and feed features." }, tags: ["JavaScript", "CSS"], link: "https://brunolopes9.github.io/TrainTwitter/", github: "https://github.com/brunolopes9/TrainTwitter" },
-  { title: "MoonWalk", description: { pt: "Landing page temática com animações e design imersivo.", en: "Themed landing page with animations and immersive design." }, tags: ["HTML", "CSS", "JavaScript"], link: "https://brunolopes9.github.io/MoonWalk/", github: "https://github.com/brunolopes9/MoonWalk" },
-  { title: "Clock", description: { pt: "Relógio digital interativo com design moderno.", en: "Interactive digital clock with modern design." }, tags: ["HTML", "CSS", "JavaScript"], link: "https://brunolopes9.github.io/clock/", github: "https://github.com/brunolopes9/clock" },
+  {
+    title: "NextHire — Portal de Emprego",
+    description: {
+      pt: "Plataforma de emprego com gestão de candidaturas, mensagens em tempo real, agendamento de entrevistas, notificações, analytics e exportação CSV. ",
+      en: "Job platform with application management, real-time messaging, interview scheduling, notifications, analytics and CSV export. "
+    },
+    tags: ["MongoDB", "Express", "React 19", "Node.js", "Tailwind CSS", "JWT"],
+    link: "https://nexthire-3-frontend.onrender.com/",
+    github: "https://github.com/brunolopes9/NextHire",
+    images: ["assets/projetos/NextHire/1.png", "assets/projetos/NextHire/2.png"],
+  },
+  {
+    title: "BestCall.pt — Site Corporativo",
+    description: {
+      pt: "Primeiro site profissional desenvolvido para a empresa BestCall em Portugal.",
+      en: "First professional website developed for the BestCall company in Portugal."
+    },
+    tags: ["WordPress", "PHP", "HTML", "CSS", "JavaScript", "SASS"],
+    link: "https://bestcall.pt/",
+    images: ["assets/projetos/Bestcall/1.png", "assets/projetos/Bestcall/2.png"],
+  },
+  {
+    title: "BLE Worker Tracking System",
+    description: {
+      pt: "Sistema de rastreamento de trabalhadores em tempo real com Bluetooth Low Energy desenvolvido para a HUF Portuguesa.",
+      en: "Real-time worker tracking system using Bluetooth Low Energy developed for HUF Portuguesa."
+    },
+    tags: ["Node.js", "PHP", "MQTT", "Socket.IO", "Chart.js", "BLE"],
+    github: "https://github.com/brunolopes9/ble_tracking_system",
+    images: ["assets/projetos/BLE/1.png", "assets/projetos/BLE/2.png"],
+  },
+  {
+    title: "RankingApp — Tier List Builder",
+    description: {
+      pt: "Aplicação para criar tier lists com drag & drop.",
+      en: "Application for building  tier lists with drag & drop. "
+    },
+    tags: ["React 19", "ASP.NET Core 8", "C#", "Tailwind", "Recharts"],
+    github: "https://github.com/brunolopes9/rankingApp",
+    images: [
+      "assets/projetos/RankingApp/1.png",
+      "assets/projetos/RankingApp/2.png"
+    ],
+  },
+  {
+    title: "SimpleShop — E-Commerce",
+    description: {
+      pt: "Plataforma de e-commerce com catálogo, utilizadores e encomendas, sessões e carrinho. ",
+      en: "E-commerce platform with catalog, users and orders, sessions and cart."
+    },
+    tags: ["Fastify", "MongoDB", "MySQL", "Redis", "Sequelize", "EJS"],
+    github: "https://github.com/brunolopes9/SimpleShop",
+    images: [ "assets/projetos/SimpleShop/2.png","assets/projetos/SimpleShop/1.png"],
+  },
+  {
+    title: "DontForget — Gestor de Tarefas",
+    description: {
+      pt: "Gestor de tarefas com lembretes multicanal: email, SMS , notificações de browser e webhooks.",
+      en: "Task manager with multi-channel reminders: email, SMS , browser notifications and webhooks."
+    },
+    tags: ["React 19", "Redux Toolkit", "Express 5", "Tailwind", "Twilio"],
+    link: "https://dontforget-sigma.vercel.app/",
+    github: "https://github.com/brunolopes9/myTodo",
+    images: [
+      "assets/projetos/DontForget/1.png"
+    ],
+  },
+  {
+    title: " Employee Management",
+    description: {
+      pt: "Sistema de gestão de funcionários",
+      en: "Employee management system."
+    },
+    tags: [".NET 8", "C#", "EF Core", "SQL Server", "React 19", "Recharts"],
+    github: "https://github.com/brunolopes9/netCRUD",
+    images: [
+      "assets/projetos/NetCRUD/1.png"
+    ],
+  },
+  {
+    title: "TrainTweet — Social Platform",
+    description: {
+      pt: "Clone profissional do Twitter/X com AI chatbot integrado.",
+      en: "Professional Twitter/X clone with integrated AI chatbot."
+    },
+    tags: ["React 19", "Vite 7", "React Router 7", "Recharts", "CSS Modules"],
+    link: "https://brunolopes9.github.io/TrainTwitter/",
+    github: "https://github.com/brunolopes9/TrainTwitter",
+    images: [
+      "assets/projetos/TrainTwitter/1.png",
+      "assets/projetos/TrainTwitter/2.png",
+      "assets/projetos/TrainTwitter/3.png",
+    ],
+  },
+  {
+    title: "TypeMaster Pro — Typing Speed",
+    description: {
+      pt: "Aplicação de teste de velocidade de escrita com 3 modos (tempo, palavras, citações).",
+      en: "Typing speed test application with 3 modes (time, words, quotes)."
+    },
+    tags: ["HTML5", "CSS3", "Vanilla JS", "Canvas API", "Web Audio API"],
+    link: "https://brunolopes9.github.io/TypingSpeed/",
+    github: "https://github.com/brunolopes9/TypingSpeed",
+    images: ["assets/projetos/TypingSpeed/1.png", "assets/projetos/TypingSpeed/2.png"],
+  },
+  {
+    title: "TimeForge — Time Management Suite",
+    description: {
+      pt: "Suite completa de gestão de tempo : relógio analógico , world clock, cronómetro, timer, técnica Pomodoro com estatísticas, alarmes com som personalizado.",
+      en: "Complete time management suite: analog clock, world clock, stopwatch, timer, Pomodoro technique with statistics, alarms with custom sound."
+    },
+    tags: ["HTML5", "SVG", "CSS3", "Vanilla JS", "Web Audio API"],
+    link: "https://brunolopes9.github.io/clock/",
+    github: "https://github.com/brunolopes9/clock",
+    images: ["assets/projetos/Clock/1.png", "assets/projetos/Clock/2.png"],
+  },
+  {
+    title: "DevLinks — Cartão Digital",
+    description: {
+      pt: "Agregador de links no formato de cartão de visita digital online. Design clean com tema dark/light.",
+      en: "Link aggregator in the format of an online digital business card. Clean design with dark/light theme."
+    },
+    tags: ["HTML", "CSS", "JavaScript"],
+    link: "https://brunolopes9.github.io/DevLinks/",
+    github: "https://github.com/brunolopes9/DevLinks",
+    images: [
+      "assets/projetos/DevLinks/1.png",
+      "assets/projetos/DevLinks/2.png",
+      "assets/projetos/DevLinks/3.png",
+    ],
+  },
+  {
+    title: " Portfólio Pessoal",
+    description: {
+      pt: "Portfólio pessoal moderno ",
+      en: "Modern personal portfolio "
+    },
+    tags: ["Next.js 15", "TypeScript", "Tailwind v4", "Framer Motion"],
+    link: "https://bruno-folio-8y1g.vercel.app/",
+    github: "https://github.com/brunolopes9/BrunoFolio",
+        images: [
+      "assets/projetos/BrunoFolio/photo1.png",
+      "assets/projetos/BrunoFolio/photo2.png",
+    ],
+  },
 ];
 
 const techStack = [

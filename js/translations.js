@@ -49,7 +49,6 @@ const translations = {
           title: "Reparação de Smartphones",
           description: "Ecrãs, baterias, conectores de carga, botões, chassis, vidros traseiros e problemas de motherboard com micro-soldaduras.",
           details: ["Ecrãs originais e compatíveis", "Baterias certificadas", "Conectores de carga", "Botões e chassis", "Micro-soldaduras na motherboard", "Recuperação de equipamentos com danos por água"],
-          highlight: "Sem conserto, não paga. Orçamentos e diagnósticos gratuitos.",
         },
         {
           id: "computadores", emoji: "💻", icon: "fa-laptop",

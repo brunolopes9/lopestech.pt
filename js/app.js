@@ -8,6 +8,7 @@ let selectedRepair = null;
 let repairFilter = null; // set after init
 let showAllRepairs = false;
 let carouselIndex = 0;
+let projectCarouselIndexes = {};
 let mobileMenuOpen = false;
 let scrolled = false;
 
@@ -467,22 +468,39 @@ function renderSoftware() {
         </div>
       </div>
       <div class="flex overflow-x-auto snap-x snap-mandatory gap-6 pb-4 scrollbar-hide md:grid md:grid-cols-2 lg:grid-cols-3 md:overflow-visible md:pb-0 md:snap-none">
-        ${projects.map(p => `
-          <div class="min-w-[280px] snap-start md:min-w-0 bg-white dark:bg-gray-800 rounded-2xl overflow-hidden border border-gray-200 dark:border-gray-700 hover:shadow-lg hover:border-blue-300 dark:hover:border-blue-600 transition-all group">
-            ${p.image ? `<div class="aspect-video overflow-hidden bg-gray-100 dark:bg-gray-900"><img src="${p.image}" alt="${p.title}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy" onerror="this.style.display='none'" /></div>` : ''}
-            <div class="p-5">
+        ${projects.map((p, idx) => {
+          const imgs = p.images || (p.image ? [p.image] : []);
+          const pIdx = projectCarouselIndexes[idx] || 0;
+          const safeIdx = imgs.length ? pIdx % imgs.length : 0;
+          return `
+          <div class="min-w-[280px] snap-start md:min-w-0 bg-white dark:bg-gray-800 rounded-2xl overflow-hidden border border-gray-200 dark:border-gray-700 hover:shadow-lg hover:border-blue-300 dark:hover:border-blue-600 transition-all group flex flex-col">
+            ${imgs.length ? `
+              <div class="aspect-video overflow-hidden bg-gray-100 dark:bg-gray-900 relative">
+                <img src="${imgs[safeIdx]}" alt="${p.title}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy" onerror="this.style.display='none'" />
+                ${imgs.length > 1 ? `
+                  <button onclick="event.stopPropagation();changeProjectCarousel(${idx},-1)" aria-label="Previous" class="absolute left-2 top-1/2 -translate-y-1/2 w-8 h-8 bg-white/80 hover:bg-white dark:bg-gray-900/80 dark:hover:bg-gray-900 rounded-full flex items-center justify-center shadow text-gray-700 dark:text-gray-200"><i class="fa-solid fa-chevron-left text-xs"></i></button>
+                  <button onclick="event.stopPropagation();changeProjectCarousel(${idx},1)" aria-label="Next" class="absolute right-2 top-1/2 -translate-y-1/2 w-8 h-8 bg-white/80 hover:bg-white dark:bg-gray-900/80 dark:hover:bg-gray-900 rounded-full flex items-center justify-center shadow text-gray-700 dark:text-gray-200"><i class="fa-solid fa-chevron-right text-xs"></i></button>
+                  <div class="absolute bottom-2 left-1/2 -translate-x-1/2 flex gap-1.5">
+                    ${imgs.map((_, i) => `<button onclick="event.stopPropagation();setProjectCarousel(${idx},${i})" aria-label="Go to slide ${i + 1}" class="w-2 h-2 rounded-full transition-all ${i === safeIdx ? 'bg-white w-4' : 'bg-white/50'}"></button>`).join('')}
+                  </div>
+                  <div class="absolute top-2 right-2 px-2 py-1 bg-black/60 backdrop-blur-sm text-white text-xs font-medium rounded-full">${safeIdx + 1}/${imgs.length}</div>
+                ` : ''}
+              </div>
+            ` : ''}
+            <div class="p-5 flex flex-col flex-1">
               <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-2">${p.title}</h3>
-              <p class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed mb-3">${p.description[currentLang]}</p>
+              <p class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed mb-3 flex-1">${p.description[currentLang]}</p>
               <div class="flex flex-wrap gap-1.5 mb-4">
                 ${p.tags.map(tag => `<span class="px-2 py-0.5 bg-blue-50 dark:bg-blue-900/30 border border-blue-100 dark:border-blue-800 text-blue-700 dark:text-blue-300 rounded-full text-xs font-medium">${tag}</span>`).join('')}
               </div>
-              <div class="flex gap-3">
+              <div class="flex gap-3 mt-auto">
                 ${p.link ? `<a href="${p.link}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-sm font-semibold text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300"><i class="fa-solid fa-up-right-from-square text-xs"></i> ${s.demo}</a>` : ''}
                 ${p.github ? `<a href="${p.github}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-sm font-semibold text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-200"><i class="fa-brands fa-github"></i> ${s.code}</a>` : ''}
               </div>
             </div>
           </div>
-        `).join('')}
+        `;
+        }).join('')}
       </div>
       <div class="mt-16 text-center">
         <p class="text-gray-600 dark:text-gray-400 mb-6 max-w-xl mx-auto text-lg">${s.ctaText}</p>
@@ -497,6 +515,20 @@ function renderSoftware() {
 
 function changeCarousel(delta) {
   carouselIndex = (carouselIndex + delta + featuredProject.images.length) % featuredProject.images.length;
+  renderSoftware();
+}
+
+function changeProjectCarousel(idx, delta) {
+  const p = projects[idx];
+  const len = (p.images || []).length;
+  if (!len) return;
+  const cur = projectCarouselIndexes[idx] || 0;
+  projectCarouselIndexes[idx] = (cur + delta + len) % len;
+  renderSoftware();
+}
+
+function setProjectCarousel(idx, i) {
+  projectCarouselIndexes[idx] = i;
   renderSoftware();
 }
 
