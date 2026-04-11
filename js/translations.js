@@ -1,4 +1,4 @@
-export const translations = {
+const translations = {
   pt: {
     nav: {
       links: [
@@ -28,9 +28,9 @@ export const translations = {
         { emoji: "📱", value: "30+", label: "Modelos diferentes" },
       ],
       boxes: [
-        { title: "Reparação", subtitle: "Smartphones & PC" },
-        { title: "Software", subtitle: "Websites & Apps" },
-        { title: "Equipamentos", subtitle: "Novos c/ garantia" },
+        { title: "Reparação", subtitle: "Smartphones & PC", icon: "fa-mobile-screen-button", color: "text-blue-400", bg: "bg-blue-500/20" },
+        { title: "Software", subtitle: "Websites & Apps", icon: "fa-code", color: "text-purple-400", bg: "bg-purple-500/20" },
+        { title: "Equipamentos", subtitle: "Novos c/ garantia", icon: "fa-bag-shopping", color: "text-amber-400", bg: "bg-amber-500/20" },
       ],
     },
     servicos: {
@@ -45,50 +45,50 @@ export const translations = {
       ctaEmail: "Orçamento por Email",
       services: [
         {
-          id: "reparacoes", emoji: "📱",
+          id: "reparacoes", emoji: "📱", icon: "fa-mobile-screen-button",
           title: "Reparação de Smartphones",
           description: "Ecrãs, baterias, conectores de carga, botões, chassis, vidros traseiros e problemas de motherboard com micro-soldaduras.",
           details: ["Ecrãs originais e compatíveis", "Baterias certificadas", "Conectores de carga", "Botões e chassis", "Micro-soldaduras na motherboard", "Recuperação de equipamentos com danos por água"],
           highlight: "Sem conserto, não paga. Orçamentos e diagnósticos gratuitos.",
         },
         {
-          id: "computadores", emoji: "💻",
+          id: "computadores", emoji: "💻", icon: "fa-laptop",
           title: "Reparação de Computadores",
           description: "Diagnóstico e reparação de computadores desktop e portáteis. Upgrades de hardware e otimização de performance.",
           details: ["Diagnóstico completo", "Upgrades de RAM e disco SSD", "Limpeza interna e substituição de peças", "Otimização de performance", "Instalação de sistemas operativos", "Reparação de portáteis e desktops"],
         },
         {
-          id: "software", emoji: "⚡",
+          id: "software", emoji: "⚡", icon: "fa-code",
           title: "Desenvolvimento de Software",
           description: "Websites, aplicações e software à medida para qualquer necessidade. Do conceito à produção.",
           details: ["Websites responsivos e modernos", "Aplicações web personalizadas", "Software de gestão à medida", "APIs e integrações", "E-commerce e lojas online", "Manutenção e suporte contínuo"],
         },
         {
-          id: "recuperacao", emoji: "💾",
+          id: "recuperacao", emoji: "💾", icon: "fa-hard-drive",
           title: "Recuperação de Dados",
           description: "Recuperação de dados de discos rígidos, SSDs, pen drives e cartões de memória danificados.",
           details: ["Discos rígidos avariados", "SSDs com falhas", "Pen drives danificadas", "Cartões de memória corrompidos", "Equipamentos com danos por água", "Diagnóstico gratuito"],
         },
         {
-          id: "redes", emoji: "🌐",
+          id: "redes", emoji: "🌐", icon: "fa-network-wired",
           title: "Redes & Infraestrutura",
           description: "Instalação e configuração de redes domésticas e empresariais. WiFi, cablagem, VPNs e servidores.",
           details: ["Redes WiFi domésticas e empresariais", "Cablagem estruturada", "Configuração de VPNs", "Servidores Windows Server", "Hardware de rede", "Infraestrutura completa"],
         },
         {
-          id: "seguranca", emoji: "🔒",
+          id: "seguranca", emoji: "🔒", icon: "fa-shield-halved",
           title: "Segurança Informática",
           description: "Proteção contra vírus, malware e ameaças online. Backups de dados, firewalls e remoção de ameaças.",
           details: ["Antivírus e anti-malware", "Remoção de vírus e malware", "Configuração de firewalls", "Backups automáticos", "Proteção de dados", "Consultoria em segurança"],
         },
         {
-          id: "windows", emoji: "🖥️",
+          id: "windows", emoji: "🖥️", icon: "fa-brands fa-windows",
           title: "Instalação Windows & Office",
           description: "Instalação de Microsoft Windows e Office originais com ativação. Configuração completa do seu sistema.",
           details: ["Windows 10 e 11 original", "Microsoft Office com licença", "Ativação genuína", "Configuração personalizada", "Drivers e atualizações", "Migração de dados"],
         },
         {
-          id: "manutencao", emoji: "🔧",
+          id: "manutencao", emoji: "🔧", icon: "fa-screwdriver-wrench",
           title: "Manutenção Preventiva",
           description: "Relatórios, suporte remoto, contratos mensais e visitas técnicas. Instalação de Windows e Office originais.",
           details: ["Contratos de manutenção mensal", "Suporte remoto", "Visitas técnicas programadas", "Relatórios de estado", "Atualizações de segurança", "Monitorização contínua"],
@@ -157,13 +157,13 @@ export const translations = {
         { year: "2022", title: "Primeiras reparações", description: "Comecei a reparar smartphones enquanto tirava o curso de Engenharia Informática. Zero experiência, muita curiosidade e dedicação." },
         { year: "2023", title: "Crescimento orgânico", description: "O boca a boca trouxe cada vez mais clientes. Investi em ferramentas e formação. Centenas de equipamentos reparados." },
         { year: "2024", title: "Experiência profissional", description: "Primeiro emprego como developer. Aprendi arquitectura de software e boas práticas." },
-        { year: "2025", title: "LopesTech nasce", description: "Criei a marca, Registei nas finanças e expandi online pela primeira vez. É o inicio da realização de um sonho pessoal onde espero contribuir positivamente e entregar sempre os melhores serviços a toda a gente." },
+        { year: "2025", title: "LopesTech nasce", description: "Criei a marca, registei nas finanças e expandi online pela primeira vez. É o início da realização de um sonho pessoal onde espero contribuir positivamente e entregar sempre os melhores serviços a toda a gente." },
       ],
       stats: [
-        { value: "3+", label: "Anos de experiência" },
-        { value: "300+", label: "Clientes satisfeitos" },
-        { value: "Eng.", label: "Informática" },
-        { value: "Viseu", label: "São Pedro de France" },
+        { value: "3+", label: "Anos de experiência", icon: "fa-calendar-days" },
+        { value: "300+", label: "Clientes satisfeitos", icon: "fa-users" },
+        { value: "Eng.", label: "Informática", icon: "fa-award" },
+        { value: "Viseu", label: "São Pedro de France", icon: "fa-location-dot" },
       ],
     },
     contacto: {
@@ -275,9 +275,9 @@ export const translations = {
         { emoji: "📱", value: "30+", label: "Different models" },
       ],
       boxes: [
-        { title: "Repair", subtitle: "Smartphones & PC" },
-        { title: "Software", subtitle: "Websites & Apps" },
-        { title: "Equipment", subtitle: "New w/ warranty" },
+        { title: "Repair", subtitle: "Smartphones & PC", icon: "fa-mobile-screen-button", color: "text-blue-400", bg: "bg-blue-500/20" },
+        { title: "Software", subtitle: "Websites & Apps", icon: "fa-code", color: "text-purple-400", bg: "bg-purple-500/20" },
+        { title: "Equipment", subtitle: "New w/ warranty", icon: "fa-bag-shopping", color: "text-amber-400", bg: "bg-amber-500/20" },
       ],
     },
     servicos: {
@@ -292,50 +292,50 @@ export const translations = {
       ctaEmail: "Quote by Email",
       services: [
         {
-          id: "reparacoes", emoji: "📱",
+          id: "reparacoes", emoji: "📱", icon: "fa-mobile-screen-button",
           title: "Smartphone Repair",
           description: "Screens, batteries, charging ports, buttons, chassis, back glass and motherboard issues with micro-soldering.",
           details: ["Original and compatible screens", "Certified batteries", "Charging ports", "Buttons and chassis", "Motherboard micro-soldering", "Water damage recovery"],
           highlight: "No fix, no pay. Free quotes and diagnostics.",
         },
         {
-          id: "computadores", emoji: "💻",
+          id: "computadores", emoji: "💻", icon: "fa-laptop",
           title: "Computer Repair",
           description: "Diagnosis and repair of desktops and laptops. Hardware upgrades and performance optimization.",
           details: ["Complete diagnosis", "RAM and SSD upgrades", "Internal cleaning and part replacement", "Performance optimization", "Operating system installation", "Laptop and desktop repair"],
         },
         {
-          id: "software", emoji: "⚡",
+          id: "software", emoji: "⚡", icon: "fa-code",
           title: "Software Development",
           description: "Websites, applications and custom software for any need. From concept to production.",
           details: ["Responsive modern websites", "Custom web applications", "Bespoke management software", "APIs and integrations", "E-commerce and online stores", "Ongoing maintenance and support"],
         },
         {
-          id: "recuperacao", emoji: "💾",
+          id: "recuperacao", emoji: "💾", icon: "fa-hard-drive",
           title: "Data Recovery",
           description: "Data recovery from damaged hard drives, SSDs, USB drives and memory cards.",
           details: ["Failed hard drives", "SSD failures", "Damaged USB drives", "Corrupted memory cards", "Water-damaged devices", "Free diagnosis"],
         },
         {
-          id: "redes", emoji: "🌐",
+          id: "redes", emoji: "🌐", icon: "fa-network-wired",
           title: "Networks & Infrastructure",
           description: "Installation and configuration of home and business networks. WiFi, cabling, VPNs and servers.",
           details: ["Home and business WiFi", "Structured cabling", "VPN configuration", "Windows Server", "Network hardware", "Complete infrastructure"],
         },
         {
-          id: "seguranca", emoji: "🔒",
+          id: "seguranca", emoji: "🔒", icon: "fa-shield-halved",
           title: "Cybersecurity",
           description: "Protection against viruses, malware and online threats. Data backups, firewalls and threat removal.",
           details: ["Antivirus and anti-malware", "Virus and malware removal", "Firewall configuration", "Automated backups", "Data protection", "Security consulting"],
         },
         {
-          id: "windows", emoji: "🖥️",
+          id: "windows", emoji: "🖥️", icon: "fa-brands fa-windows",
           title: "Windows & Office Installation",
           description: "Installation of genuine Microsoft Windows and Office with activation. Complete system setup.",
           details: ["Genuine Windows 10 and 11", "Licensed Microsoft Office", "Genuine activation", "Custom configuration", "Drivers and updates", "Data migration"],
         },
         {
-          id: "manutencao", emoji: "🔧",
+          id: "manutencao", emoji: "🔧", icon: "fa-screwdriver-wrench",
           title: "Preventive Maintenance",
           description: "Reports, remote support, monthly contracts and technical visits. Windows and Office installation.",
           details: ["Monthly maintenance contracts", "Remote support", "Scheduled technical visits", "Status reports", "Security updates", "Continuous monitoring"],
@@ -407,10 +407,10 @@ export const translations = {
         { year: "2025", title: "LopesTech is born", description: "Created the brand, registered the business and expanded online for the first time. The beginning of a personal dream where I hope to contribute positively and always deliver the best services to everyone." },
       ],
       stats: [
-        { value: "3+", label: "Years of experience" },
-        { value: "300+", label: "Happy clients" },
-        { value: "Eng.", label: "Computer Science" },
-        { value: "Viseu", label: "São Pedro de France" },
+        { value: "3+", label: "Years of experience", icon: "fa-calendar-days" },
+        { value: "300+", label: "Happy clients", icon: "fa-users" },
+        { value: "Eng.", label: "Computer Science", icon: "fa-award" },
+        { value: "Viseu", label: "São Pedro de France", icon: "fa-location-dot" },
       ],
     },
     contacto: {

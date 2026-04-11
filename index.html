@@ -1,69 +1,97 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="pt-PT">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" href="/assets/sobre-mim/logo.jpg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LopesTech - Reparação de Smartphones & Software | Viseu</title>
+  <meta name="description" content="Reparação de smartphones e computadores, desenvolvimento de software à medida e venda de equipamentos. Orçamentos gratuitos. Viseu, Portugal." />
+  <meta name="keywords" content="reparação smartphones viseu, reparação telemóveis, desenvolvimento software, lopestech, reparação ecrã, reparação iphone, reparação samsung" />
+  <meta name="author" content="Bruno Lopes - LopesTech" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://lopestech.pt" />
 
-    <title>LopesTech - Reparação de Smartphones, Software & Equipamentos | Viseu</title>
-    <meta name="description" content="LopesTech - Reparação de smartphones e computadores, desenvolvimento de software à medida e venda de equipamentos novos com garantia. +300 clientes satisfeitos em Viseu. Orçamentos gratuitos." />
-    <meta name="keywords" content="reparação smartphones viseu, reparar telemóvel viseu, desenvolvimento software viseu, LopesTech, Bruno Lopes, reparação ecrã, reparação iPhone, reparação Samsung, software à medida, websites" />
-    <meta name="author" content="Bruno Lopes - LopesTech" />
-    <meta name="robots" content="index, follow" />
-    <link rel="canonical" href="https://lopestech.pt" />
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://lopestech.pt" />
+  <meta property="og:title" content="LopesTech - Reparação de Smartphones & Software | Viseu" />
+  <meta property="og:description" content="Reparação de smartphones e computadores, desenvolvimento de software à medida e venda de equipamentos. Orçamentos gratuitos. Viseu, Portugal." />
+  <meta property="og:image" content="https://lopestech.pt/assets/sobre-mim/logo.jpg" />
+  <meta property="og:locale" content="pt_PT" />
 
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://lopestech.pt" />
-    <meta property="og:title" content="LopesTech - Reparação de Smartphones, Software & Equipamentos | Viseu" />
-    <meta property="og:description" content="Reparação de smartphones e computadores, desenvolvimento de software à medida e venda de equipamentos novos com garantia. +300 clientes satisfeitos." />
-    <meta property="og:image" content="https://lopestech.pt/assets/sobre-mim/logo.jpg" />
-    <meta property="og:locale" content="pt_PT" />
+  <!-- Schema.org -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "LopesTech",
+    "description": "Reparação de smartphones e computadores, desenvolvimento de software à medida e venda de equipamentos novos com garantia.",
+    "url": "https://lopestech.pt",
+    "telephone": "+351933938716",
+    "email": "contacto@lopestech.pt",
+    "address": { "@type": "PostalAddress", "streetAddress": "Av. da Igreja, Figueiredo", "addressLocality": "Viseu", "postalCode": "3505-347", "addressCountry": "PT" },
+    "geo": { "@type": "GeoCoordinates", "latitude": "40.6574", "longitude": "-7.8636" },
+    "founder": { "@type": "Person", "name": "Bruno Lopes", "jobTitle": "Engenheiro Informático" },
+    "priceRange": "$$",
+    "openingHoursSpecification": { "@type": "OpeningHoursSpecification", "description": "Por marcação prévia" }
+  }
+  </script>
 
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="LopesTech - Reparação & Software | Viseu" />
-    <meta name="twitter:description" content="Reparação de smartphones, desenvolvimento de software e venda de equipamentos. Orçamentos gratuitos." />
-    <meta name="twitter:image" content="https://lopestech.pt/assets/sobre-mim/logo.jpg" />
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
 
-    <meta name="geo.region" content="PT-18" />
-    <meta name="geo.placename" content="Viseu" />
-
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
-
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "LocalBusiness",
-      "name": "LopesTech",
-      "description": "Reparação de smartphones e computadores, desenvolvimento de software à medida e venda de equipamentos novos com garantia.",
-      "url": "https://lopestech.pt",
-      "telephone": "+351933938716",
-      "address": {
-        "@type": "PostalAddress",
-        "addressLocality": "São Pedro de France",
-        "addressRegion": "Viseu",
-        "addressCountry": "PT"
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwindcss.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: { sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'] },
+        },
       },
-      "founder": {
-        "@type": "Person",
-        "name": "Bruno Lopes"
-      },
-      "sameAs": [
-        "https://www.facebook.com/lopestech.pt",
-        "https://www.instagram.com/lopestech.pt",
-        "https://www.linkedin.com/in/brunolopes9/"
-      ],
-      "priceRange": "€€",
-      "openingHoursSpecification": {
-        "@type": "OpeningHoursSpecification",
-        "description": "Por marcação prévia"
-      }
     }
-    </script>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
-  </body>
+  </script>
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body class="bg-white dark:bg-slate-900">
+
+  <!-- Navbar -->
+  <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-white dark:bg-slate-900 shadow-md dark:shadow-slate-800/50"></nav>
+
+  <!-- Mobile Menu -->
+  <div id="mobile-menu" class="fixed top-16 md:top-20 left-0 right-0 z-40 bg-white dark:bg-slate-900 border-t dark:border-gray-800 shadow-xl hidden md:hidden"></div>
+
+  <!-- Main Content -->
+  <main>
+    <section id="inicio"></section>
+    <section id="servicos"></section>
+    <section id="reparacoes"></section>
+    <div id="video-showcase"></div>
+    <section id="software"></section>
+    <section id="sobre"></section>
+    <section id="contacto"></section>
+  </main>
+
+  <footer id="footer"></footer>
+
+  <!-- WhatsApp Float Button -->
+  <a id="whatsapp-float" href="https://wa.me/351933938716?text=Ol%C3%A1!%20Gostaria%20de%20saber%20mais%20sobre%20os%20vossos%20servi%C3%A7os." target="_blank" rel="noopener noreferrer" class="fixed bottom-6 right-6 z-40 w-14 h-14 bg-green-500 hover:bg-green-600 text-white rounded-full flex items-center justify-center shadow-lg transition-all hover:scale-110 animate-pulse-green" aria-label="Contactar via WhatsApp">
+    <i class="fa-brands fa-whatsapp text-3xl"></i>
+  </a>
+
+  <!-- Modal Container -->
+  <div id="modal-container"></div>
+
+  <!-- Scripts -->
+  <script src="js/translations.js" charset="UTF-8"></script>
+  <script src="js/data.js" charset="UTF-8"></script>
+  <script src="js/app.js" charset="UTF-8"></script>
+</body>
 </html>
