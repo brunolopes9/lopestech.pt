@@ -124,7 +124,6 @@ const projects = [
       en: "Professional Twitter/X clone with integrated AI chatbot."
     },
     tags: ["React 19", "Vite 7", "React Router 7", "Recharts", "CSS Modules"],
-    link: "https://brunolopes9.github.io/TrainTwitter/",
     github: "https://github.com/brunolopes9/TrainTwitter",
     images: [
       "assets/projetos/TrainTwitter/1.png",
@@ -186,11 +185,5 @@ const projects = [
 ];
 
 const techStack = [
-  { name: ".NET / C#", color: "text-purple-600" },
-  { name: "React", color: "text-cyan-500", faIcon: "fa-brands fa-react" },
-  { name: "TypeScript", color: "text-blue-600" },
-  { name: "MongoDB", color: "text-green-600" },
-  { name: "Python", color: "text-yellow-500", faIcon: "fa-brands fa-python" },
-  { name: "Tailwind", color: "text-teal-500" },
-  { name: "SQL Server", color: "text-red-600", faIcon: "fa-solid fa-database" },
+
 ];
