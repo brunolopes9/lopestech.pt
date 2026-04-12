@@ -28,6 +28,27 @@ function t(key) {
 function $(sel) { return document.querySelector(sel); }
 function $$(sel) { return document.querySelectorAll(sel); }
 
+// Scroll position preservation for horizontal carousels
+const _scrollCache = {};
+function saveScroll(containerId) {
+  const el = document.getElementById(containerId);
+  if (el) _scrollCache[containerId] = el.scrollLeft;
+}
+function restoreScroll(containerId) {
+  const el = document.getElementById(containerId);
+  if (el && _scrollCache[containerId] != null) {
+    el.scrollLeft = _scrollCache[containerId];
+  }
+}
+function saveAllScrolls() {
+  ['services-grid', 'services-extra-grid', 'reparacoes-grid', 'videos-grid', 'projects-grid'].forEach(saveScroll);
+}
+function restoreAllScrolls() {
+  requestAnimationFrame(() => {
+    ['services-grid', 'services-extra-grid', 'reparacoes-grid', 'videos-grid', 'projects-grid'].forEach(restoreScroll);
+  });
+}
+
 // ============================================
 // THEME
 // ============================================
@@ -53,6 +74,7 @@ function toggleDark() {
 function setLang(lang) {
   currentLang = lang;
   localStorage.setItem('lang', lang);
+  document.documentElement.lang = lang === 'en' ? 'en' : 'pt-PT';
   repairFilter = t('reparacoes.all');
   showAllRepairs = false;
   renderAll();
@@ -77,16 +99,16 @@ function renderNavbar() {
         <div class="hidden md:flex items-center gap-1">
           ${nav.links.map(l => `<a href="${l.href}" class="px-3 py-2 rounded-lg text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-blue-50 dark:hover:bg-blue-900/30 transition-colors">${l.label}</a>`).join('')}
 
-          <div class="flex items-center ml-2 bg-gray-100 dark:bg-gray-800 rounded-lg p-0.5">
-            <button onclick="setLang('pt')" class="px-2 py-1.5 rounded-md text-sm transition-all ${currentLang === 'pt' ? 'bg-white dark:bg-gray-700 shadow-sm' : 'opacity-50 hover:opacity-80'}" title="Portugues">
+          <div class="flex items-center ml-2 bg-gray-100 dark:bg-gray-800 rounded-lg p-0.5" role="group" aria-label="Idioma">
+            <button onclick="setLang('pt')" class="px-2 py-1.5 rounded-md text-sm transition-all ${currentLang === 'pt' ? 'bg-white dark:bg-gray-700 shadow-sm' : 'opacity-50 hover:opacity-80'}" title="Portugues" aria-label="Mudar para Portugues" aria-pressed="${currentLang === 'pt'}">
               <img src="https://flagcdn.com/w40/pt.png" alt="PT" class="w-5 h-3.5 object-cover rounded-sm" />
             </button>
-            <button onclick="setLang('en')" class="px-2 py-1.5 rounded-md text-sm transition-all ${currentLang === 'en' ? 'bg-white dark:bg-gray-700 shadow-sm' : 'opacity-50 hover:opacity-80'}" title="English">
+            <button onclick="setLang('en')" class="px-2 py-1.5 rounded-md text-sm transition-all ${currentLang === 'en' ? 'bg-white dark:bg-gray-700 shadow-sm' : 'opacity-50 hover:opacity-80'}" title="English" aria-label="Switch to English" aria-pressed="${currentLang === 'en'}">
               <img src="https://flagcdn.com/w40/gb.png" alt="EN" class="w-5 h-3.5 object-cover rounded-sm" />
             </button>
           </div>
 
-          <button onclick="toggleDark()" class="ml-1 px-2.5 py-2 rounded-lg text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors" title="${isDark ? 'Light mode' : 'Dark mode'}">
+          <button onclick="toggleDark()" class="ml-1 px-2.5 py-2 rounded-lg text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors" title="${isDark ? 'Light mode' : 'Dark mode'}" aria-label="${isDark ? 'Mudar para tema claro' : 'Mudar para tema escuro'}">
             <i class="fa-solid ${isDark ? 'fa-sun' : 'fa-moon'}"></i>
           </button>
 
@@ -107,10 +129,10 @@ function renderNavbar() {
               <img src="https://flagcdn.com/w40/gb.png" alt="EN" class="w-5 h-3.5 object-cover rounded-sm" />
             </button>
           </div>
-          <button onclick="toggleDark()" class="p-2 rounded-lg text-gray-900 dark:text-white">
+          <button onclick="toggleDark()" class="p-2 rounded-lg text-gray-900 dark:text-white" aria-label="${isDark ? 'Mudar para tema claro' : 'Mudar para tema escuro'}">
             <i class="fa-solid ${isDark ? 'fa-sun' : 'fa-moon'} text-lg"></i>
           </button>
-          <button onclick="toggleMobileMenu()" class="p-2 rounded-lg text-gray-900 dark:text-white">
+          <button onclick="toggleMobileMenu()" class="p-2 rounded-lg text-gray-900 dark:text-white" aria-label="${mobileMenuOpen ? 'Fechar menu' : 'Abrir menu'}" aria-expanded="${mobileMenuOpen}">
             <i class="fa-solid ${mobileMenuOpen ? 'fa-xmark' : 'fa-bars'} text-2xl"></i>
           </button>
         </div>
@@ -213,7 +235,7 @@ function renderServicos() {
       </div>
       <div class="mt-16">
         <h3 class="text-2xl font-bold text-gray-900 dark:text-white text-center mb-8">${s.extraTitle}</h3>
-        <div class="flex overflow-x-auto snap-x snap-mandatory gap-4 pb-4 scrollbar-hide md:grid md:grid-cols-3 md:overflow-visible md:pb-0 md:snap-none">
+        <div class="flex overflow-x-auto snap-x snap-mandatory gap-4 pb-4 scrollbar-hide md:grid md:grid-cols-3 md:overflow-visible md:pb-0 md:snap-none" id="services-extra-grid">
           ${s.extra.map(e => `
             <div class="min-w-[280px] snap-start md:min-w-0 bg-white dark:bg-gray-800 rounded-2xl p-6 border border-gray-200 dark:border-gray-700 hover:shadow-lg hover:border-blue-300 dark:hover:border-blue-600 transition-all">
               <div class="flex items-center justify-between mb-4">
@@ -261,7 +283,11 @@ function renderServiceCard(svc, s) {
 
 function toggleService(id) {
   expandedService = expandedService === id ? null : id;
+  saveScroll('services-grid');
+  saveScroll('services-extra-grid');
   renderServicos();
+  restoreScroll('services-grid');
+  restoreScroll('services-extra-grid');
 }
 
 // ============================================
@@ -273,7 +299,8 @@ function renderReparacoes() {
   const allLabel = r.all;
   const brands = [allLabel, ...new Set(reparacoes.map(rep => rep.brand))];
   const filtered = reparacoes.filter(rep => repairFilter === allLabel || rep.brand === repairFilter);
-  const displayed = showAllRepairs ? filtered : filtered.slice(0, 8);
+  const isMobile = window.innerWidth < 1024;
+  const displayed = (isMobile || showAllRepairs) ? filtered : filtered.slice(0, 8);
 
   $('#reparacoes').className = 'py-20 md:py-28 bg-gray-100 dark:bg-gray-900';
   $('#reparacoes').innerHTML = `
@@ -290,10 +317,10 @@ function renderReparacoes() {
       <div class="flex flex-wrap justify-center gap-2 mb-10">
         ${brands.map(b => `<button onclick="setRepairFilter('${b}')" class="px-4 py-2 rounded-full text-sm font-medium transition-all ${repairFilter === b ? 'bg-blue-600 text-white shadow-md' : 'bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 border border-gray-200 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-700'}">${b}</button>`).join('')}
       </div>
-      <div class="flex overflow-x-auto snap-x snap-mandatory gap-4 pb-4 scrollbar-hide lg:grid lg:grid-cols-4 lg:overflow-visible lg:pb-0 lg:snap-none">
+      <div class="flex overflow-x-auto snap-x snap-mandatory gap-4 pb-4 scrollbar-hide lg:grid lg:grid-cols-4 lg:overflow-visible lg:pb-0 lg:snap-none" id="reparacoes-grid">
         ${displayed.map(rep => renderRepairCard(rep, r)).join('')}
       </div>
-      ${filtered.length > 8 && !showAllRepairs ? `<div class="text-center mt-10"><button onclick="showAllRepairs=true;renderReparacoes();" class="px-8 py-3 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-xl transition-colors">${r.viewAll} (${filtered.length})</button></div>` : ''}
+      ${filtered.length > 8 && !showAllRepairs && !isMobile ? `<div class="text-center mt-10"><button onclick="showAllRepairs=true;renderReparacoes();" class="px-8 py-3 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-xl transition-colors">${r.viewAll} (${filtered.length})</button></div>` : ''}
       <div class="mt-16 bg-gradient-to-r from-blue-600 to-indigo-700 rounded-2xl p-8 md:p-12 text-center text-white">
         <h3 class="text-2xl md:text-3xl font-bold mb-4">${r.ctaTitle}</h3>
         <p class="text-blue-100 mb-6 max-w-xl mx-auto">${r.ctaDescription}</p>
@@ -409,7 +436,7 @@ function renderVideoShowcase() {
           <h2 class="text-3xl md:text-5xl font-bold text-white mt-3">${v.title}</h2>
           <p class="text-gray-400 mt-4 max-w-2xl mx-auto text-lg">${v.description}</p>
         </div>
-        <div class="flex overflow-x-auto snap-x snap-mandatory gap-6 pb-4 scrollbar-hide lg:grid lg:grid-cols-4 lg:overflow-visible lg:pb-0 lg:snap-none max-w-6xl mx-auto">
+        <div class="flex overflow-x-auto snap-x snap-mandatory gap-6 pb-4 scrollbar-hide lg:grid lg:grid-cols-4 lg:overflow-visible lg:pb-0 lg:snap-none max-w-6xl mx-auto" id="videos-grid">
           ${videos.map(vid => `
             <div class="min-w-[260px] snap-start lg:min-w-0 rounded-2xl overflow-hidden shadow-2xl bg-gray-800">
               <div class="aspect-[9/16]">
@@ -467,7 +494,7 @@ function renderSoftware() {
           </div>
         </div>
       </div>
-      <div class="flex overflow-x-auto snap-x snap-mandatory gap-6 pb-4 scrollbar-hide md:grid md:grid-cols-2 lg:grid-cols-3 md:overflow-visible md:pb-0 md:snap-none">
+      <div class="flex overflow-x-auto snap-x snap-mandatory gap-6 pb-4 scrollbar-hide md:grid md:grid-cols-2 lg:grid-cols-3 md:overflow-visible md:pb-0 md:snap-none" id="projects-grid">
         ${projects.map((p, idx) => {
           const imgs = p.images || (p.image ? [p.image] : []);
           const pIdx = projectCarouselIndexes[idx] || 0;
@@ -515,7 +542,9 @@ function renderSoftware() {
 
 function changeCarousel(delta) {
   carouselIndex = (carouselIndex + delta + featuredProject.images.length) % featuredProject.images.length;
+  saveScroll('projects-grid');
   renderSoftware();
+  restoreScroll('projects-grid');
 }
 
 function changeProjectCarousel(idx, delta) {
@@ -524,12 +553,16 @@ function changeProjectCarousel(idx, delta) {
   if (!len) return;
   const cur = projectCarouselIndexes[idx] || 0;
   projectCarouselIndexes[idx] = (cur + delta + len) % len;
+  saveScroll('projects-grid');
   renderSoftware();
+  restoreScroll('projects-grid');
 }
 
 function setProjectCarousel(idx, i) {
   projectCarouselIndexes[idx] = i;
+  saveScroll('projects-grid');
   renderSoftware();
+  restoreScroll('projects-grid');
 }
 
 // ============================================
@@ -800,6 +833,7 @@ function closeLegalModal() {
 // RENDER ALL
 // ============================================
 function renderAll() {
+  saveAllScrolls();
   renderNavbar();
   renderHero();
   renderServicos();
@@ -809,6 +843,7 @@ function renderAll() {
   renderSobreMim();
   renderContacto();
   renderFooter();
+  restoreAllScrolls();
 }
 
 // ============================================

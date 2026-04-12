@@ -3,20 +3,43 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>LopesTech - Reparação de Smartphones & Software | Viseu</title>
-  <meta name="description" content="Reparação de smartphones e computadores, desenvolvimento de software à medida e venda de equipamentos. Orçamentos gratuitos. Viseu, Portugal." />
-  <meta name="keywords" content="reparação smartphones viseu, reparação telemóveis, desenvolvimento software, lopestech, reparação ecrã, reparação iphone, reparação samsung" />
+  <meta name="theme-color" content="#0f172a" media="(prefers-color-scheme: dark)" />
+  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+  <meta name="format-detection" content="telephone=yes" />
+  <title>LopesTech - Reparação de Smartphones, Computadores e Software | Viseu</title>
+  <meta name="description" content="Reparação de smartphones, tablets e computadores, desenvolvimento de software à medida e venda de equipamentos com garantia. Orçamentos gratuitos em Viseu." />
+  <meta name="keywords" content="reparação smartphones viseu, reparação telemóveis viseu, reparação iphone viseu, reparação samsung viseu, reparação computadores, desenvolvimento software, lopestech, reparação ecrã, reparação bateria" />
   <meta name="author" content="Bruno Lopes - LopesTech" />
-  <meta name="robots" content="index, follow" />
-  <link rel="canonical" href="https://lopestech.pt" />
+  <meta name="robots" content="index, follow, max-image-preview:large" />
+  <meta name="googlebot" content="index, follow" />
+  <link rel="canonical" href="https://lopestech.pt/" />
+  <link rel="alternate" hreflang="pt-PT" href="https://lopestech.pt/" />
+  <link rel="alternate" hreflang="en" href="https://lopestech.pt/?lang=en" />
+  <link rel="alternate" hreflang="x-default" href="https://lopestech.pt/" />
+
+  <!-- Favicons -->
+  <link rel="icon" type="image/jpeg" href="assets/sobre-mim/logo.jpg" />
+  <link rel="apple-touch-icon" href="assets/sobre-mim/logo.jpg" />
 
   <!-- Open Graph -->
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://lopestech.pt" />
-  <meta property="og:title" content="LopesTech - Reparação de Smartphones & Software | Viseu" />
-  <meta property="og:description" content="Reparação de smartphones e computadores, desenvolvimento de software à medida e venda de equipamentos. Orçamentos gratuitos. Viseu, Portugal." />
+  <meta property="og:url" content="https://lopestech.pt/" />
+  <meta property="og:site_name" content="LopesTech" />
+  <meta property="og:title" content="LopesTech - Reparação de Smartphones, Computadores e Software | Viseu" />
+  <meta property="og:description" content="Reparação de smartphones, tablets e computadores, desenvolvimento de software à medida e venda de equipamentos com garantia. Orçamentos gratuitos em Viseu." />
   <meta property="og:image" content="https://lopestech.pt/assets/sobre-mim/logo.jpg" />
+  <meta property="og:image:width" content="512" />
+  <meta property="og:image:height" content="512" />
+  <meta property="og:image:alt" content="Logótipo LopesTech" />
   <meta property="og:locale" content="pt_PT" />
+  <meta property="og:locale:alternate" content="en_GB" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="LopesTech - Reparação de Smartphones & Software | Viseu" />
+  <meta name="twitter:description" content="Reparação de smartphones, tablets e computadores e desenvolvimento de software à medida em Viseu. Orçamentos gratuitos." />
+  <meta name="twitter:image" content="https://lopestech.pt/assets/sobre-mim/logo.jpg" />
+  <meta name="twitter:image:alt" content="Logótipo LopesTech" />
 
   <!-- Schema.org -->
   <script type="application/ld+json">
@@ -36,22 +59,31 @@
   }
   </script>
 
-  <!-- Fonts -->
+  <!-- DNS prefetch & preconnect -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="dns-prefetch" href="https://cdn.tailwindcss.com" />
+  <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com" />
+  <link rel="dns-prefetch" href="https://flagcdn.com" />
+  <link rel="dns-prefetch" href="https://www.youtube-nocookie.com" />
+
+  <!-- Preload LCP image -->
+  <link rel="preload" as="image" href="assets/hero.jpg" fetchpriority="high" />
+
+  <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
 
-  <!-- Tailwind CSS CDN -->
+  <!-- Tailwind CSS Play CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
-    tailwindcss.config = {
+    tailwind.config = {
       darkMode: 'class',
       theme: {
         extend: {
           fontFamily: { sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'] },
         },
       },
-    }
+    };
   </script>
 
   <!-- Font Awesome -->
@@ -59,8 +91,27 @@
 
   <!-- Custom CSS -->
   <link rel="stylesheet" href="css/styles.css" />
+
+  <!-- Apply theme before paint to avoid FOUC -->
+  <script>
+    (function () {
+      try {
+        var saved = localStorage.getItem('theme');
+        var dark = saved ? saved === 'dark' : window.matchMedia('(prefers-color-scheme: dark)').matches;
+        if (dark) {
+          document.documentElement.classList.add('dark');
+          document.documentElement.style.backgroundColor = '#0f172a';
+        }
+        var savedLang = localStorage.getItem('lang');
+        if (savedLang) document.documentElement.lang = savedLang === 'en' ? 'en' : 'pt-PT';
+      } catch (e) {}
+    })();
+  </script>
 </head>
 <body class="bg-white dark:bg-slate-900">
+
+  <!-- Skip to content -->
+  <a href="#inicio" class="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-[100] focus:px-4 focus:py-2 focus:bg-blue-600 focus:text-white focus:rounded-lg">Saltar para o conteúdo</a>
 
   <!-- Navbar -->
   <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-white dark:bg-slate-900 shadow-md dark:shadow-slate-800/50"></nav>
