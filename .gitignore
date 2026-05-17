@@ -1,0 +1,71 @@
+# =============================================================
+# LopesTech — root gitignore. Defesa em profundidade.
+# Este repo é o source do website lopestech.pt (GitHub Pages + CNAME).
+# Tudo o que não for website static fica fora — protege segredos,
+# evita commits acidentais de outros projectos, e mantém git limpo.
+# =============================================================
+
+# --- Outros projectos (têm os seus próprios repos) ---
+RepairDesk/
+frontend/
+
+# --- Pastas pessoais (não pertencem a um repo público) ---
+Sobre Mim/
+Reparações/
+projetos/
+QR Ordering/
+
+# --- Site novo em curso (escolher quando substituir o actual) ---
+Site HTML - lopestech.pt/
+
+# --- Estado interno de tools ---
+.claude/
+.vscode/
+.idea/
+
+# --- Logs ---
+*.log
+api-stderr.log
+api-stdout.log
+
+# --- Chaves e certificados — NUNCA no git ---
+*.key
+*.pem
+*.pfx
+*.p12
+*.jks
+*.keystore
+*-key.json
+*credentials*.json
+*service-account*.json
+*.csr
+
+# --- Pasta finanças: TUDO é sensível por defeito (certificados AT, password webservice) ---
+finanças/*
+!finanças/.gitkeep
+!finanças/README.md
+!finanças/secrets/
+finanças/secrets/*
+!finanças/secrets/.gitignore
+!finanças/secrets/README.md
+
+# --- Env e segredos ---
+.env
+.env.local
+.env.*.local
+*.env
+
+# --- OS / IDE noise ---
+.DS_Store
+Thumbs.db
+desktop.ini
+*.swp
+*.swo
+
+# --- Node (caso haja algum projecto fora) ---
+node_modules/
+
+# --- Backup files ---
+*.bak
+*.backup
+*~
