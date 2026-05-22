@@ -112,11 +112,11 @@ function renderNavbar() {
             <i class="fa-solid ${isDark ? 'fa-sun' : 'fa-moon'}"></i>
           </button>
 
-          <a href="https://wa.me/351933938716?text=Ol%C3%A1!%20Gostaria%20de%20pedir%20um%20or%C3%A7amento." target="_blank" rel="noopener noreferrer" class="ml-2 flex items-center gap-1.5 px-4 py-2 bg-green-500 hover:bg-green-600 text-white text-sm font-semibold rounded-lg transition-colors">
+          <a href="https://wa.me/351933938716?text=Ol%C3%A1!%20Gostaria%20de%20pedir%20um%20or%C3%A7amento." target="_blank" rel="noopener noreferrer" class="ml-2 flex items-center gap-1.5 px-4 py-2 bg-green-500 hover:bg-green-600 text-white text-sm font-semibold rounded-lg transition-colors" title="${nav.cta} — WhatsApp">
             <i class="fa-brands fa-whatsapp"></i> ${nav.cta}
           </a>
-          <a href="mailto:contacto@lopestech.pt?subject=Pedido%20de%20Or%C3%A7amento" class="ml-1 flex items-center gap-1.5 px-4 py-2 bg-blue-500 hover:bg-blue-600 text-white text-sm font-semibold rounded-lg transition-colors">
-            <i class="fa-solid fa-envelope text-xs"></i> ${nav.cta}
+          <a href="mailto:contacto@lopestech.pt?subject=Pedido%20de%20Or%C3%A7amento" class="ml-1 flex items-center justify-center px-3 py-2 bg-blue-500 hover:bg-blue-600 text-white rounded-lg transition-colors" title="${nav.cta} — Email" aria-label="${nav.cta} por email">
+            <i class="fa-solid fa-envelope"></i>
           </a>
         </div>
 
@@ -157,11 +157,11 @@ function renderMobileMenu() {
     <div class="px-4 py-3 space-y-1">
       ${nav.links.map(l => `<a href="${l.href}" onclick="mobileMenuOpen=false;renderNavbar();" class="block px-4 py-3 text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-blue-50 dark:hover:bg-blue-900/30 rounded-lg font-medium">${l.label}</a>`).join('')}
       <div class="flex gap-2 mt-2">
-        <a href="https://wa.me/351933938716?text=Ol%C3%A1!%20Gostaria%20de%20pedir%20um%20or%C3%A7amento." target="_blank" rel="noopener noreferrer" class="flex-1 flex items-center justify-center gap-2 px-4 py-3 bg-green-500 text-white font-semibold rounded-lg">
-          <i class="fa-brands fa-whatsapp text-lg"></i> ${nav.cta}
+        <a href="https://wa.me/351933938716?text=Ol%C3%A1!%20Gostaria%20de%20pedir%20um%20or%C3%A7amento." target="_blank" rel="noopener noreferrer" class="flex-1 flex items-center justify-center gap-2 px-4 py-3 bg-green-500 text-white font-semibold rounded-lg" aria-label="${nav.cta} via WhatsApp">
+          <i class="fa-brands fa-whatsapp text-lg"></i> WhatsApp
         </a>
-        <a href="mailto:contacto@lopestech.pt?subject=Pedido%20de%20Or%C3%A7amento" class="flex-1 flex items-center justify-center gap-2 px-4 py-3 bg-blue-500 text-white font-semibold rounded-lg">
-          <i class="fa-solid fa-envelope"></i> ${nav.cta}
+        <a href="mailto:contacto@lopestech.pt?subject=Pedido%20de%20Or%C3%A7amento" class="flex-1 flex items-center justify-center gap-2 px-4 py-3 bg-blue-500 text-white font-semibold rounded-lg" aria-label="${nav.cta} via email">
+          <i class="fa-solid fa-envelope"></i> Email
         </a>
       </div>
     </div>
